@@ -1,5 +1,5 @@
-# Laravel開発環境テンプレート
-## Dockerで構築するLaravel開発環境
+# LaravelREST API
+## 
 ### 構築される環境
 ```
 LAMP + Laravel
@@ -8,7 +8,7 @@ A: Apache2.4(alpine)
 M: MySQL 5.7
 P: PHP7.3
 
-Laravel => バージョンは任意に対応
+Laravel => 5.7.x
 ```
 ### ファイル構成
 ```

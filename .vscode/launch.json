@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Listen for XDebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9001,
+            "stopOnEntry": false, //xdebugが1行目で止まるのを回避
+            "log": true,
+            "pathMappings": {
+                // {docker上のdocument root}:{ローカルのdocument root}
+                // ${workspaceFolder} => VsCodeで開いているルートディレクトリ
+                "/var/www/laravel": "${workspaceFolder}/app_server/laravel/",
+            }
+        }
+    ]
+}

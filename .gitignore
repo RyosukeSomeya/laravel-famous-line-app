@@ -1,4 +1,2 @@
 .DS_Store
-.vscode
-app_server/laravel/*
 db_server/db_volume/*
