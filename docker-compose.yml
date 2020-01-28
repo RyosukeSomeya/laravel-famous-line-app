@@ -28,9 +28,9 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: "root"
-      MYSQL_DATABASE: laravel_db
+      MYSQL_DATABASE: famous_line_db
       MYSQL_USER: "user"
-      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: "${DB_PASSWORD}"
       TZ: 'Asia/Tokyo'
     networks:
       - docker_net
