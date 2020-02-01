@@ -15,7 +15,6 @@ class CreateSlamdunkCharactersTable extends Migration
     {
         Schema::create('slamdunk_characters', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('chara_id');
             $table->string('name');
             $table->timestamps();
         });

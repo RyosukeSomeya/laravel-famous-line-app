@@ -16,7 +16,7 @@ class CreateSlamdunkLinesTable extends Migration
         Schema::create('slamdunk_lines', function (Blueprint $table) {
             $table->increments('id');
             $table->text('famousline');
-            $table->integer('character_id')->unique();
+            $table->integer('slamdunk_character_id')->unique();
             $table->timestamps();
         });
     }
