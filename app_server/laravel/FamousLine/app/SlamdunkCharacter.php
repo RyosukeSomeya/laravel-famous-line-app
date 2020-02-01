@@ -8,6 +8,7 @@ class SlamdunkCharacter extends Model
 {
     public function lines()
     {
-        return $this->hasMany('App\SlamdunkLine');
+        // 名言とのリレーション
+        return $this->hasMany('App\SlamdunkLine', 'slamdunk_character_id', 'character_id');
     }
 }

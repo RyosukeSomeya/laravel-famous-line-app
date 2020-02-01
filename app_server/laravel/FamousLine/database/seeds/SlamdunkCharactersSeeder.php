@@ -13,11 +13,11 @@ class SlamdunkCharactersSeeder extends Seeder
     public function run()
     {
         $characters = [
-            ['title_id' => 1, 'character_name' => '桜木花道'],
-            ['title_id' => 1, 'character_name' => '赤木剛憲'],
-            ['title_id' => 1, 'character_name' => '三井寿'],
-            ['title_id' => 1, 'character_name' => '安西光義'],
-            ['title_id' => 1, 'character_name' => '仙道彰'],
+            ['title_id' => 1, 'character_id' => 1, 'character_name' => '桜木花道'],
+            ['title_id' => 1, 'character_id' => 2, 'character_name' => '赤木剛憲'],
+            ['title_id' => 1, 'character_id' => 3, 'character_name' => '三井寿'],
+            ['title_id' => 1, 'character_id' => 4, 'character_name' => '安西光義'],
+            ['title_id' => 1, 'character_id' => 5, 'character_name' => '仙道彰'],
         ];
 
         foreach ($characters as $character) {

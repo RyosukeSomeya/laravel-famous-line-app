@@ -16,8 +16,9 @@ class SlamdunkLine extends JsonResource
     {
         return [
             'id'         => $this->id,
+            'title'      => $this->title_id,
+            'character'  => $this->slamdunk_character_id,
             'famousline' => $this->famousline,
-            'character'  => $this->character_id,
         ];
     }
 }
