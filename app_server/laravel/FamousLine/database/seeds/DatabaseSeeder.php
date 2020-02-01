@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         $this->call(SlamdunkCharactersSeeder::class);
         $this->call(SlamdunkLinesSeeder::class);
+        $this->call(TitlesSeeder::class);
     }
 }

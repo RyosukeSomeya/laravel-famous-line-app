@@ -14,4 +14,4 @@ use Illuminate\Http\Request;
 */
 
 // Route::get('/slamdunks', 'API\SlamdunkController@index');
-Route::apiResource('slamdunk', 'API\SlamdunkController');
+Route::apiResource('slamdunk', 'SlamdunkApiController');

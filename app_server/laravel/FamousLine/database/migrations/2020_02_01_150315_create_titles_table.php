@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSlamdunkLinesTable extends Migration
+class CreateTitlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateSlamdunkLinesTable extends Migration
      */
     public function up()
     {
-        Schema::create('slamdunk_lines', function (Blueprint $table) {
+        Schema::create('titles', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('title_id');
-            $table->integer('slamdunk_character_id');
-            $table->text('famousline');
+            $table->string('title');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateSlamdunkLinesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('slamdunk_lines');
+        Schema::dropIfExists('titles');
     }
 }

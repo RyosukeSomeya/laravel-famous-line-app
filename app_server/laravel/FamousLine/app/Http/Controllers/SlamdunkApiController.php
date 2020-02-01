@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\SlamdunkLine as SlamdunkResource;
 use App\SlamdunkLine;
 
-class SlamdunkController extends Controller
+class SlamdunkApiController extends Controller
 {
     /**
      * Display a listing of the resource.
