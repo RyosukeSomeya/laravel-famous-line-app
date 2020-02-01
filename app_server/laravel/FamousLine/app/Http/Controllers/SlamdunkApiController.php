@@ -39,7 +39,10 @@ class SlamdunkApiController extends Controller
      */
     public function show($id)
     {
+        //
         // idをチェックするバリデーションを追加する
+        //
+
         $slamdunk_line = SlamdunkLine::getSlamdunkLine($id);
 
         return $slamdunk_line;
