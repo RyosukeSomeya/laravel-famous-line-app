@@ -41,10 +41,13 @@ class SlamdunkApiController extends Controller
      */
     public function show($id)
     {
-        //
-        // idをチェックするバリデーションを追加する
-        //
+        // 登録されている名言の数
+        $slamdunk_lines_count = SlamdunkLine::countLine();
 
-        return new ResourcesSlamdunkLine(SlamdunkLine::getLine($id));
+        if ($id >= 1 && $slamdunk_lines_count >= $id)  {
+            return new ResourcesSlamdunkLine(SlamdunkLine::getLine($id));
+        } else {
+            return response()->json(['error' => '不正なリクエストです。']);
+        }
     }
 }

@@ -50,4 +50,19 @@ class SlamdunkLine extends Model
 
         return $slamdunk_line;
     }
+
+    /**
+     * 名言の数を返却
+     *
+     * @param  int  $id
+     * @return Object
+     */
+    public static function countLine()
+    {
+        $slamdunk_line_count = SlamdunkLine::all()->count();
+
+        return $slamdunk_line_count;
+    }
+
+
 }
