@@ -15,7 +15,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\SlamdunkLine as ResourcesSlamdunkLine;
 use App\SlamdunkLine;
+
 
 class SlamdunkApiController extends Controller
 {
@@ -26,9 +28,9 @@ class SlamdunkApiController extends Controller
      */
     public function index()
     {
-        $slamdunk_lines = SlamdunkLine::getAllSlamdunkLines();
+        $slamdunk_lines = SlamdunkLine::getAllLines();
 
-        return $slamdunk_lines;
+        return ResourcesSlamdunkLine::collection($slamdunk_lines);
     }
 
     /**
@@ -43,8 +45,6 @@ class SlamdunkApiController extends Controller
         // idをチェックするバリデーションを追加する
         //
 
-        $slamdunk_line = SlamdunkLine::getSlamdunkLine($id);
-
-        return $slamdunk_line;
+        return new ResourcesSlamdunkLine(SlamdunkLine::getLine($id));
     }
 }

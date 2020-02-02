@@ -27,48 +27,27 @@ class SlamdunkLine extends Model
     }
 
     /**
-     * すべての名言リストをJSONで返却
+     * すべての名言リストを返却
      *
-     * @return Json
+     * @return Object
      */
-    public static function getAllSlamdunkLines()
+    public static function getAllLines()
     {
-        $slamdunk_lines = SlamdunkLine::with(['character', 'title'])->get();
+        $slamdunk_lines = SlamdunkLine::all();
 
-        $slamdunk_response = [];
-        foreach ($slamdunk_lines as $slamdunk_line) {
-            array_push($slamdunk_response, [
-                "id"              => $slamdunk_line->id,
-                "famousline"      => $slamdunk_line->famousline,
-                "character_name"  => $slamdunk_line->character->character_name,
-                "title"           => $slamdunk_line->title->title
-            ]);
-        }
-
-        $slamdunk_json = json_encode($slamdunk_response, JSON_PRETTY_PRINT);
-
-        return $slamdunk_json;
+        return $slamdunk_lines;
     }
 
     /**
-     * 個別の名言をJSONで返却
+     * 個別の名言を返却
      *
      * @param  int  $id
-     * @return Josn
+     * @return Object
      */
-    public static function getSlamdunkLine($id)
+    public static function getLine($id)
     {
-        $slamdunk_line = SlamdunkLine::with(['character', 'title'])->find($id);
+        $slamdunk_line = SlamdunkLine::find($id);
 
-        $slamdunk_response = [
-            "id"              => $slamdunk_line->id,
-            "famousline"      => $slamdunk_line->famousline,
-            "character_name"  => $slamdunk_line->character->character_name,
-            "title"           => $slamdunk_line->title->title
-        ];
-
-        $slamdunk_json = json_encode($slamdunk_response, JSON_PRETTY_PRINT);
-
-        return $slamdunk_json;
+        return $slamdunk_line;
     }
 }
