@@ -12,8 +12,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        $this->call(SlamdunkCharactersSeeder::class);
+        // $this->call(SlamdunkCharactersSeeder::class);
         $this->call(SlamdunkLinesSeeder::class);
+        $this->call(GundamCharactersSeeder::class);
+        $this->call(GundamLinesSeeder::class);
+        $this->call(JojoCharactersSeeder::class);
+        $this->call(JojoLinesSeeder::class);
         $this->call(TitlesSeeder::class);
     }
 }
