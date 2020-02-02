@@ -14,4 +14,6 @@ use Illuminate\Http\Request;
 */
 
 // Route::get('/slamdunks', 'API\SlamdunkController@index');
-Route::apiResource('slamdunk', 'SlamdunkApiController');
+Route::apiResource('slamdunk', 'SlamdunkApiController', ['only' => ['index', 'show']]);
+Route::apiResource('jojo', 'JojoApiController', ['only' => ['index', 'show']]);
+Route::apiResource('gundam', 'GundamApiController', ['only' => ['index', 'show']]);

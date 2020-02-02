@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources;
 
+use App\Title;
+use App\GundamCharacter;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class GundamLine extends JsonResource
@@ -16,8 +18,8 @@ class GundamLine extends JsonResource
     {
         return [
             'id'         => $this->id,
-            'title'      => $this->title_id,
-            'character'  => $this->gundam_character_id,
+            'title'      => Title::getTitle($this->title_id),
+            'character'  => GundamCharacter::getCharacterName($this->gundam_character_id),
             'famousline' => $this->famousline,
         ];
     }

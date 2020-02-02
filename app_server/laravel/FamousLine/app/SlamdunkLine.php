@@ -63,6 +63,4 @@ class SlamdunkLine extends Model
 
         return $slamdunk_line_count;
     }
-
-
 }

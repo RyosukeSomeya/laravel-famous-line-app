@@ -4,7 +4,6 @@ namespace App\Http\Resources;
 
 use App\Title;
 use App\SlamdunkCharacter;
-
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class SlamdunkLine extends JsonResource

@@ -2,6 +2,9 @@
 
 namespace App\Http\Resources;
 
+use App\Title;
+use App\JojoCharacter;
+
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class JojoLine extends JsonResource
@@ -16,8 +19,8 @@ class JojoLine extends JsonResource
     {
         return [
             'id'         => $this->id,
-            'title'      => $this->title_id,
-            'character'  => $this->jojo_character_id,
+            'title'      => Title::getTitle($this->title_id),
+            'character'  => JojoCharacter::getCharacterName($this->jojo_character_id),
             'famousline' => $this->famousline,
         ];
     }
