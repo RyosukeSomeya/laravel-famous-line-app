@@ -1,27 +1,17 @@
-<html>
+@extends('layouts.main')
 
-<head>
-    <meta charset="utf-8">
-</head>
+@section('header')
+    @component('components.header')
+        @slot('page_title')
+        名言一覧
+        @endslot
+    @endcomponent
+@endsection
 
-<body>
-    <ul>
-        <?php foreach ($slamdunk_lines as $key => $line) : ?>
-            <li><?php echo $line->famousline; ?></li>
-            <li><?php echo $line->character->character_name; ?></li>
-            <li><?php echo $line->title->title; ?></li>
-        <?php endforeach; ?>
-        <?php foreach ($jojo_lines as $key => $line) : ?>
-            <li><?php echo $line->famousline; ?></li>
-            <li><?php echo $line->character->character_name; ?></li>
-            <li><?php echo $line->title->title; ?></li>
-        <?php endforeach; ?>
-        <?php foreach ($gundam_lines as $key => $line) : ?>
-            <li><?php echo $line->famousline; ?></li>
-            <li><?php echo $line->character->character_name; ?></li>
-            <li><?php echo $line->title->title; ?></li>
-        <?php endforeach; ?>
-    </ul>
-</body>
+@section('content')
+    @include('components.all_linelist')
+@endsection
 
-</html>
+@section('footer')
+    @include('components.footer')
+@endsection

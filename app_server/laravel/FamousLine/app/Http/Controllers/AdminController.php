@@ -26,11 +26,6 @@ class AdminController extends Controller
         $gundam_row_lines = GundamLine::getAllLines();
         $gundam_lines = json_decode($gundam_row_lines);
 
-        // var_dump($slamdunk_lines);
-        // var_dump($jojo_lines);
-        // var_dump($gundam_lines);
-        // exit;
-
         return view('admin.index', [
             'slamdunk_lines' => $slamdunk_lines,
             'jojo_lines'     => $jojo_lines,

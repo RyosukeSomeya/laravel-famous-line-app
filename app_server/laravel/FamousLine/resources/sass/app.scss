@@ -12,3 +12,48 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header_title {
+  padding: 8px 15px;
+  background: #efefef;
+}
+
+.page_title {
+  padding: 15px 0;
+}
+
+.linelist-container {
+  max-height: 700px;
+  margin-right: 15px;
+  padding: 15px 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow-y: scroll;
+  .famousline_txt {
+    margin-bottom: 0;
+    padding: 4px 8px;
+    border: 1px solid #efefef;
+    font-weight: bold;
+  }
+  .character_name {
+    text-align: right;
+    padding: 4px 8px;
+    background: #efefef;
+  }
+}
+
+footer {
+  margin-top: 30px;
+  padding: 15px;
+  background: #efefef;
+  p {
+    text-align: center;
+    color: #000;
+  }
+}
+
