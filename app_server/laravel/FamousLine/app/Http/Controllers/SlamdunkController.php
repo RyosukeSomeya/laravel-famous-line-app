@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\SlamdunkLine;
+use App\SlamdunkCharacter;
+use App\Title;
 
 class SlamdunkController extends Controller
 {
@@ -13,7 +16,13 @@ class SlamdunkController extends Controller
      */
     public function index()
     {
-        //
+        // 全名言を取得
+        $slamdunk_row_lines = SlamdunkLine::getAllLines();
+        $slamdunk_lines = json_decode($slamdunk_row_lines);
+
+        return view('components.index', [
+            'famous_lines' => $slamdunk_lines,
+        ]);
     }
 
     /**
@@ -23,7 +32,13 @@ class SlamdunkController extends Controller
      */
     public function create()
     {
-        //
+        $slamdunk_characters = SlamdunkCharacter::getCharacters();
+        $title_info = Title::getTitleInfo(1);
+
+        return view('components.line_create', [
+            'slamdunk_characters' => $slamdunk_characters,
+            'title_info' => $title_info
+        ]);
     }
 
     /**
@@ -32,9 +47,13 @@ class SlamdunkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, SlamdunkLine $line)
     {
-        //
+        $line->famousline            = $request->famousline;
+        $line->slamdunk_character_id = $request->slamdunk_character_id;
+        $line->title_id              = $request->title_id;
+        $line->save();
+        return redirect('slamdunk');
     }
 
     /**
@@ -45,7 +64,11 @@ class SlamdunkController extends Controller
      */
     public function show($id)
     {
-        //
+        $slamdunk_line = SlamdunkLine::getLine($id);
+
+        return view('components.line_detail', [
+            'slamdunk_line' => $slamdunk_line
+        ]);
     }
 
     /**
@@ -56,7 +79,11 @@ class SlamdunkController extends Controller
      */
     public function edit($id)
     {
-        //
+        $slamdunk_line = SlamdunkLine::getLine($id);
+
+        return view('components.line_edit', [
+            'slamdunk_line' => $slamdunk_line
+        ]);
     }
 
     /**
@@ -68,7 +95,10 @@ class SlamdunkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $line = SlamdunkLine::getLine($id);
+        $line->famousline = $request->famousline;
+        $line->save();
+        return redirect('slamdunk/' . $line->id);
     }
 
     /**
@@ -79,6 +109,9 @@ class SlamdunkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $line = SlamdunkLine::getLine($id);
+        $line->delete();
+
+        return redirect('/slamdunk');
     }
 }

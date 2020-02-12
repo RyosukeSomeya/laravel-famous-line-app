@@ -13,5 +13,5 @@
 
 Route::resource('/', 'AdminController', ['only' => ['index']]);
 Route::resource('/slamdunk', 'SlamdunkController');
-Route::resource('/Jojo', 'JojoController');
-Route::resource('/Gundam', 'GundamController');
+Route::resource('/jojo', 'JojoController');
+Route::resource('/gundam', 'GundamController');

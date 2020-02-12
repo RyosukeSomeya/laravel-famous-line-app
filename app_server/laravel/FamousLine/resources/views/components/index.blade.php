@@ -1,16 +1,15 @@
 @extends('layouts.main')
-@section('title', '名言一覧')
-
+@section('title', 'スラムダンク名言一覧')
 @section('header')
 @component('components.header')
 @slot('page_title')
-名言一覧
+スラムダンク名言一覧
 @endslot
 @endcomponent
 @endsection
 
 @section('content')
-@include('components.all_linelist')
+@include('components.title_linelist')
 @endsection
 
 @section('footer')

@@ -16,4 +16,9 @@ class SlamdunkCharacter extends Model
     {
         return SlamdunkCharacter::find($id)->character_name;
     }
+
+    public static function getCharacters()
+    {
+        return SlamdunkCharacter::all();
+    }
 }

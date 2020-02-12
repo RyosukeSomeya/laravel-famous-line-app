@@ -46,7 +46,7 @@ class SlamdunkLine extends Model
      */
     public static function getLine($id)
     {
-        $slamdunk_line = SlamdunkLine::find($id);
+        $slamdunk_line = SlamdunkLine::with('character', 'title')->find($id);
 
         return $slamdunk_line;
     }

@@ -47,6 +47,24 @@
   }
 }
 
+.famousline_txt {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  &--body {
+  margin-bottom: 0;
+  font-size: 20px;
+  }
+}
+
+.font-smaller {
+  font-size: 60%;
+}
+
+textarea {
+  width: 80%;
+}
+
 footer {
   margin-top: 30px;
   padding: 15px;
