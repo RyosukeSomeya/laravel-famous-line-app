@@ -10906,7 +10906,7 @@ a.text-dark:focus {
 .linelist-container {
   max-height: 700px;
   margin-right: 15px;
-  padding: 15px 30px;
+  padding: 15px 8px;
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow-y: scroll;

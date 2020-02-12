@@ -12,9 +12,9 @@ class TitlesSeeder extends Seeder
     public function run()
     {
         $params = [
-            ['title' => 'スラムダンク'],
-            ['title' => 'ジョジョの奇妙な冒険'],
-            ['title' => '機動戦士ガンダム'],
+            ['title' => 'スラムダンク', 'path' => 'slamdunk'],
+            ['title' => 'ジョジョの奇妙な冒険', 'path' => 'jojo'],
+            ['title' => '機動戦士ガンダム', 'path' => 'gundam'],
         ];
 
         foreach ($params as $param) {
