@@ -14,6 +14,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class JojoLine extends Model
 {
+    //　キャラクターテーブルとのリレーション
+    public function character()
+    {
+        return $this->belongsTo('App\JojoCharacter',  'jojo_character_id', 'character_id');
+    }
+
+    // タイトルテーブルとのリレーション
+    public function title()
+    {
+        return $this->belongsTo('App\Title');
+    }
     /**
      * すべての名言リストを返却
      *
@@ -21,7 +32,7 @@ class JojoLine extends Model
      */
     public static function getAllLines()
     {
-        $jojo_lines = JojoLine::all();
+        $jojo_lines = JojoLine::with('character', 'title')->get();
 
         return $jojo_lines;
     }

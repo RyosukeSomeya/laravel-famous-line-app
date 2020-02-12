@@ -33,7 +33,7 @@ class SlamdunkLine extends Model
      */
     public static function getAllLines()
     {
-        $slamdunk_lines = SlamdunkLine::all();
+        $slamdunk_lines = SlamdunkLine::with('character', 'title')->get();
 
         return $slamdunk_lines;
     }

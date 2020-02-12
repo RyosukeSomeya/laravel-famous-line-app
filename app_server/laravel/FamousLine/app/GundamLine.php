@@ -14,6 +14,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class GundamLine extends Model
 {
+    //　キャラクターテーブルとのリレーション
+    public function character()
+    {
+        return $this->belongsTo('App\GundamCharacter',  'gundam_character_id', 'character_id');
+    }
+
+    // タイトルテーブルとのリレーション
+    public function title()
+    {
+        return $this->belongsTo('App\Title');
+    }
     /**
      * すべての名言リストを返却
      *
@@ -21,7 +32,7 @@ class GundamLine extends Model
      */
     public static function getAllLines()
     {
-        $gundam_lines = GundamLine::all();
+        $gundam_lines = GundamLine::with('character', 'title')->get();
 
         return $gundam_lines;
     }
