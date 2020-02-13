@@ -53,7 +53,7 @@ class SlamdunkController extends Controller
         $line->slamdunk_character_id = $request->slamdunk_character_id;
         $line->title_id              = $request->title_id;
         $line->save();
-        return redirect('slamdunk');
+        return redirect('/slamdunk');
     }
 
     /**

@@ -53,7 +53,7 @@ class JojoController extends Controller
         $line->jojo_character_id = $request->jojo_character_id;
         $line->title_id          = $request->title_id;
         $line->save();
-        return redirect('jojo');
+        return redirect('/jojo');
     }
 
     /**
@@ -98,7 +98,7 @@ class JojoController extends Controller
         $line = JojoLine::getLine($id);
         $line->famousline = $request->famousline;
         $line->save();
-        return redirect('jojo/' . $line->id);
+        return redirect('/jojo/' . $line->id);
     }
 
     /**

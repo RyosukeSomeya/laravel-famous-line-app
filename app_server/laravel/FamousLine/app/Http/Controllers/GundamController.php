@@ -53,7 +53,7 @@ class GundamController extends Controller
         $line->gundam_character_id = $request->gundam_character_id;
         $line->title_id            = $request->title_id;
         $line->save();
-        return redirect('gundam');
+        return redirect('/gundam');
     }
 
     /**
@@ -98,7 +98,7 @@ class GundamController extends Controller
         $line = GundamLine::getLine($id);
         $line->famousline = $request->famousline;
         $line->save();
-        return redirect('gundam/' . $line->id);
+        return redirect('/gundam/' . $line->id);
     }
 
     /**
