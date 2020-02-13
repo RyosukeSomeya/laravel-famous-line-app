@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
+
+@import url(https://fonts.googleapis.com/css?family=Nunito);
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
@@ -10899,11 +10901,6 @@ a.text-dark:focus {
   background: #efefef;
 }
 
-.header_title h1 a {
-  color: #666;
-  text-decoration: none;
-}
-
 .page_title {
   padding: 15px 0;
 }
@@ -10937,16 +10934,11 @@ a.text-dark:focus {
 }
 
 .famousline_txt--body {
-  margin-bottom: 0;
   font-size: 20px;
 }
 
 .font-smaller {
   font-size: 60%;
-}
-
-textarea {
-  width: 80%;
 }
 
 footer {
