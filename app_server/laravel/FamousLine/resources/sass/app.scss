@@ -21,6 +21,12 @@
 .header_title {
   padding: 8px 15px;
   background: #efefef;
+  h1 {
+    a {
+      color: #666;
+      text-decoration: none;
+    }
+  }
 }
 
 .page_title {

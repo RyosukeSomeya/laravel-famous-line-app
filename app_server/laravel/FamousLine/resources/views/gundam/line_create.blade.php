@@ -11,15 +11,16 @@
 @endsection
 
 @section('content')
-<form action="/slamdunk" method="post">
+<form action="/gundam" method="post">
     @csrf
     <input type="hidden" name="title_id" value="{{ $title_info->id }}">
     <p>キャラクターを選択</p>
-    <select name="slamdunk_character_id">
-        @foreach($slamdunk_characters as $character)
+    <select name="gundam_character_id">
+        @foreach($gundam_characters as $character)
         <option value="{{ $character->character_id }}">{{ $character->character_name }}</option>
         @endforeach
     </select>
+    <a class="d-inline-block ml-2 btn btn-primary btn-sm" href="/gundamchara">キャラクターを追加</a>
     <div class="mt-2">
         <textarea name='famousline' cols="30" rows="4"></textarea>
     </div>

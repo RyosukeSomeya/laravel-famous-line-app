@@ -10899,6 +10899,11 @@ a.text-dark:focus {
   background: #efefef;
 }
 
+.header_title h1 a {
+  color: #666;
+  text-decoration: none;
+}
+
 .page_title {
   padding: 15px 0;
 }

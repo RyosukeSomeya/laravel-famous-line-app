@@ -20,7 +20,7 @@ class SlamdunkController extends Controller
         $slamdunk_row_lines = SlamdunkLine::getAllLines();
         $slamdunk_lines = json_decode($slamdunk_row_lines);
 
-        return view('components.index', [
+        return view('slamdunk.index', [
             'famous_lines' => $slamdunk_lines,
         ]);
     }
@@ -33,9 +33,9 @@ class SlamdunkController extends Controller
     public function create()
     {
         $slamdunk_characters = SlamdunkCharacter::getCharacters();
-        $title_info = Title::getTitleInfo(1);
+        $title_info = Title::getTitleInfo(Title::SLAM_DUNK_CODE);
 
-        return view('components.line_create', [
+        return view('slamdunk.line_create', [
             'slamdunk_characters' => $slamdunk_characters,
             'title_info' => $title_info
         ]);
@@ -66,7 +66,7 @@ class SlamdunkController extends Controller
     {
         $slamdunk_line = SlamdunkLine::getLine($id);
 
-        return view('components.line_detail', [
+        return view('slamdunk.line_detail', [
             'slamdunk_line' => $slamdunk_line
         ]);
     }
@@ -81,7 +81,7 @@ class SlamdunkController extends Controller
     {
         $slamdunk_line = SlamdunkLine::getLine($id);
 
-        return view('components.line_edit', [
+        return view('slamdunk.line_edit', [
             'slamdunk_line' => $slamdunk_line
         ]);
     }

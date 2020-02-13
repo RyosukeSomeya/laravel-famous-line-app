@@ -10,4 +10,9 @@ class GundamCharacter extends Model
     {
         return GundamCharacter::find($id)->character_name;
     }
+
+    public static function getCharacters()
+    {
+        return GundamCharacter::all();
+    }
 }

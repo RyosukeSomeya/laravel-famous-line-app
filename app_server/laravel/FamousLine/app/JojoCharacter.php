@@ -9,5 +9,10 @@ class JojoCharacter extends Model
     public static function getCharacterName($id)
     {
         return JojoCharacter::find($id)->character_name;
-    }    //
+    }
+
+    public static function getCharacters()
+    {
+        return JojoCharacter::all();
+    }
 }

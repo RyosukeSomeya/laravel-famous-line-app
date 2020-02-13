@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Title extends Model
 {
+    const SLAM_DUNK_CODE = 1;
+    const JOJO_CODE      = 2;
+    const GUNDAM_CODE    = 3;
     /**
      * タイトル情報を返却
      *

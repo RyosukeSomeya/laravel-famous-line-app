@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\GundamLine;
+use App\GundamCharacter;
+use App\Title;
 
 class GundamController extends Controller
 {
@@ -13,7 +16,13 @@ class GundamController extends Controller
      */
     public function index()
     {
-        //
+        // 全名言を取得
+        $gundam_row_lines = GundamLine::getAllLines();
+        $gundam_lines = json_decode($gundam_row_lines);
+
+        return view('gundam.index', [
+            'famous_lines' => $gundam_lines,
+        ]);
     }
 
     /**
@@ -23,7 +32,13 @@ class GundamController extends Controller
      */
     public function create()
     {
-        //
+        $gundam_characters = GundamCharacter::getCharacters();
+        $title_info = Title::getTitleInfo(Title::GUNDAM_CODE);
+
+        return view('gundam.line_create', [
+            'gundam_characters' => $gundam_characters,
+            'title_info'        => $title_info
+        ]);
     }
 
     /**
@@ -32,9 +47,13 @@ class GundamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, GundamLine $line)
     {
-        //
+        $line->famousline          = $request->famousline;
+        $line->gundam_character_id = $request->gundam_character_id;
+        $line->title_id            = $request->title_id;
+        $line->save();
+        return redirect('gundam');
     }
 
     /**
@@ -45,7 +64,11 @@ class GundamController extends Controller
      */
     public function show($id)
     {
-        //
+        $gundam_line = GundamLine::getLine($id);
+
+        return view('gundam.line_detail', [
+            'gundam_line' => $gundam_line
+        ]);
     }
 
     /**
@@ -56,7 +79,11 @@ class GundamController extends Controller
      */
     public function edit($id)
     {
-        //
+        $gundam_line = GundamLine::getLine($id);
+
+        return view('gundam.line_edit', [
+            'gundam_line' => $gundam_line
+        ]);
     }
 
     /**
@@ -68,7 +95,10 @@ class GundamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $line = GundamLine::getLine($id);
+        $line->famousline = $request->famousline;
+        $line->save();
+        return redirect('gundam/' . $line->id);
     }
 
     /**
@@ -79,6 +109,9 @@ class GundamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $line = GundamLine::getLine($id);
+        $line->delete();
+
+        return redirect('/gundam');
     }
 }
