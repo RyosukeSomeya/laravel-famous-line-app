@@ -1,4 +1,4 @@
-# LaravelREST API
+# LaravelREST APIと管理画面
 ## 
 ### 構築される環境
 ```
