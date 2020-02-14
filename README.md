@@ -1,5 +1,5 @@
 # LaravelREST APIと管理画面
-## 
+## マンガ名言API
 ### 構築される環境
 ```
 LAMP + Laravel
