@@ -1,9 +1,11 @@
 @extends('layouts.main')
-@section('title', 'スラムダンクキャラクター一覧')
+@section('title')
+{{ $title_info->title }}キャラクター一覧
+@endsection
 @section('header')
 @component('components.header')
 @slot('page_title')
-スラムダンクキャラクター一覧
+{{ $title_info->title }}キャラクター一覧
 @endslot
 @endcomponent
 @endsection

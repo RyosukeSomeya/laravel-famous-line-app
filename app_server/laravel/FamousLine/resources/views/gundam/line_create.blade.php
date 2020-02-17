@@ -20,7 +20,7 @@
         <option value="{{ $character->character_id }}">{{ $character->character_name }}</option>
         @endforeach
     </select>
-    <a class="d-inline-block ml-2 btn btn-primary btn-sm" href="/gundamchara">キャラクターを追加</a>
+    <a class="d-inline-block ml-2 btn btn-primary btn-sm" href="/gundamcharacters">キャラクターを追加</a>
     <div class="mt-2">
         <textarea name='famousline' cols="30" rows="4"></textarea>
     </div>

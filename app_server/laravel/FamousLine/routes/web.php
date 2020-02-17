@@ -15,4 +15,6 @@ Route::resource('/', 'AdminController', ['only' => ['index']]);
 Route::resource('/slamdunk', 'SlamdunkController');
 Route::resource('/slamdunkcharacters', 'SlamdunkCharacterController', ['except' => ['show']]);
 Route::resource('/jojo', 'JojoController');
+Route::resource('/jojocharacters', 'JojoCharacterController', ['except' => ['show']]);
 Route::resource('/gundam', 'GundamController');
+Route::resource('/gundamcharacters', 'GundamCharacterController', ['except' => ['show']]);

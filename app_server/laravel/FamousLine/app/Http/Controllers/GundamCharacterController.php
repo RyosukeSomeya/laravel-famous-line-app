@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\SlamdunkCharacter;
+use App\GundamCharacter;
 use App\Title;
 
-class SlamdunkCharacterController extends Controller
+class GundamCharacterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +15,12 @@ class SlamdunkCharacterController extends Controller
      */
     public function index()
     {
-        $characters = SlamdunkCharacter::getCharacters();
-        $title_info = Title::getTitleInfo(Title::SLAM_DUNK_CODE);
+        $characters = GundamCharacter::getCharacters();
+        $title_info = Title::getTitleInfo(Title::GUNDAM_CODE);
 
         return view('character.index', [
             'characters' => $characters,
-            'title_info' => $title_info
+            'title_info' => $title_info,
         ]);
     }
 
@@ -32,7 +32,7 @@ class SlamdunkCharacterController extends Controller
     public function create()
     {
         $title_info = Title::getTitleInfo(Title::SLAM_DUNK_CODE);
-        return view('character.slamdunk_chara_create', [
+        return view('character.gundam_chara_create', [
             'title_info' => $title_info
         ]);
     }
@@ -43,13 +43,13 @@ class SlamdunkCharacterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, SlamdunkCharacter $chara)
+    public function store(Request $request,  GundamCharacter $chara)
     {
-        $chara->character_name = $request->character_name;
-        $chara->character_id   = SlamdunkCharacter::getCharactersCount() + 1;
-        $chara->title_id       = $request->title_id;
+        $chara->character_name  = $request->character_name;
+        $chara->character_id    = GundamCharacter::getCharactersCount() + 1;
+        $chara->title_id        = $request->title_id;
         $chara->save();
-        return redirect('/slamdunkcharacters');
+        return redirect('/gundamcharacters');
     }
 
     /**
@@ -60,10 +60,10 @@ class SlamdunkCharacterController extends Controller
      */
     public function edit($id)
     {
-        $character = SlamdunkCharacter::getCharacter($id);
-        $title_info = Title::getTitleInfo(Title::SLAM_DUNK_CODE);
+        $character = GundamCharacter::getCharacter($id);
+        $title_info = Title::getTitleInfo(Title::GUNDAM_CODE);
 
-        return view('character.slamdunk_chara_edit', [
+        return view('character.gundam_chara_edit', [
             'character' => $character,
             'title_info' => $title_info
         ]);
@@ -78,10 +78,10 @@ class SlamdunkCharacterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $character = SlamdunkCharacter::getCharacter($id);
+        $character = GundamCharacter::getCharacter($id);
         $character->character_name = $request->character_name;
         $character->save();
-        return redirect('/slamdunkcharacters');
+        return redirect('/gundamcharacters');
     }
 
     /**
@@ -92,9 +92,9 @@ class SlamdunkCharacterController extends Controller
      */
     public function destroy($id)
     {
-        $chara = SlamdunkCharacter::getCharacter($id);
+        $chara = GundamCharacter::getCharacter($id);
         $chara->delete();
 
-        return redirect('/slamdunkcharacters');
+        return redirect('/gundamcharacters');
     }
 }
