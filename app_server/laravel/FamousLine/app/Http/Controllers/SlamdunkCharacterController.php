@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\SlamdunkLine;
 use App\SlamdunkCharacter;
 use App\Title;
 
-class SlamdunkController extends Controller
+class SlamdunkCharacterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +15,9 @@ class SlamdunkController extends Controller
      */
     public function index()
     {
-        // 全名言を取得
-        $slamdunk_row_lines = SlamdunkLine::getAllLines();
-        $slamdunk_lines = json_decode($slamdunk_row_lines);
-        $title_info = Title::getTitleInfo(Title::SLAM_DUNK_CODE);
-
-        return view('slamdunk.index', [
-            'famous_lines' => $slamdunk_lines,
-            'title_info'   => $title_info
+        $characters = SlamdunkCharacter::getCharacters();
+        return view('character.index', [
+            'characters' => $characters,
         ]);
     }
 
@@ -34,11 +28,8 @@ class SlamdunkController extends Controller
      */
     public function create()
     {
-        $slamdunk_characters = SlamdunkCharacter::getCharacters();
         $title_info = Title::getTitleInfo(Title::SLAM_DUNK_CODE);
-
-        return view('slamdunk.line_create', [
-            'slamdunk_characters' => $slamdunk_characters,
+        return view('character.slamdunk_chara_create', [
             'title_info' => $title_info
         ]);
     }
@@ -49,13 +40,13 @@ class SlamdunkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, SlamdunkLine $line)
+    public function store(Request $request, SlamdunkCharacter $chara)
     {
-        $line->famousline            = $request->famousline;
-        $line->slamdunk_character_id = $request->slamdunk_character_id;
-        $line->title_id              = $request->title_id;
-        $line->save();
-        return redirect('/slamdunk');
+        $chara->character_name        = $request->character_name;
+        $chara->character_id = SlamdunkCharacter::getCharactersCount() + 1;
+        $chara->title_id              = $request->title_id;
+        $chara->save();
+        return redirect('/slamdunkcharacters');
     }
 
     /**
@@ -66,11 +57,7 @@ class SlamdunkController extends Controller
      */
     public function show($id)
     {
-        $slamdunk_line = SlamdunkLine::getLine($id);
-
-        return view('slamdunk.line_detail', [
-            'slamdunk_line' => $slamdunk_line
-        ]);
+        //
     }
 
     /**
@@ -81,10 +68,12 @@ class SlamdunkController extends Controller
      */
     public function edit($id)
     {
-        $slamdunk_line = SlamdunkLine::getLine($id);
+        $character = SlamdunkCharacter::getCharacter($id);
+        $title_info = Title::getTitleInfo(Title::SLAM_DUNK_CODE);
 
-        return view('slamdunk.line_edit', [
-            'slamdunk_line' => $slamdunk_line
+        return view('character.slamdunk_chara_edit', [
+            'character' => $character,
+            'title_info' => $title_info
         ]);
     }
 
@@ -97,10 +86,10 @@ class SlamdunkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $line = SlamdunkLine::getLine($id);
-        $line->famousline = $request->famousline;
-        $line->save();
-        return redirect('slamdunk/' . $line->id);
+        $character = SlamdunkCharacter::getCharacter($id);
+        $character->character_name = $request->character_name;
+        $character->save();
+        return redirect('/slamdunkcharacters');
     }
 
     /**
@@ -111,9 +100,9 @@ class SlamdunkController extends Controller
      */
     public function destroy($id)
     {
-        $line = SlamdunkLine::getLine($id);
-        $line->delete();
+        $chara = SlamdunkCharacter::getCharacter($id);
+        $chara->delete();
 
-        return redirect('/slamdunk');
+        return redirect('/slamdunkcharacters');
     }
 }

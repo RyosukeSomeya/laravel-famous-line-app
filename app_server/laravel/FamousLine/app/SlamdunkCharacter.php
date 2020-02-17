@@ -12,6 +12,11 @@ class SlamdunkCharacter extends Model
         return $this->hasMany('App\SlamdunkLine', 'slamdunk_character_id', 'character_id');
     }
 
+    public static function getCharacter($id)
+    {
+        return SlamdunkCharacter::find($id);
+    }
+
     public static function getCharacterName($id)
     {
         return SlamdunkCharacter::find($id)->character_name;
@@ -20,5 +25,10 @@ class SlamdunkCharacter extends Model
     public static function getCharacters()
     {
         return SlamdunkCharacter::all();
+    }
+
+    public static function getCharactersCount()
+    {
+        return SlamdunkCharacter::all()->count();
     }
 }

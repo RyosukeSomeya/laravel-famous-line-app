@@ -19,9 +19,11 @@ class GundamController extends Controller
         // 全名言を取得
         $gundam_row_lines = GundamLine::getAllLines();
         $gundam_lines = json_decode($gundam_row_lines);
+        $title_info = Title::getTitleInfo(Title::GUNDAM_CODE);
 
         return view('gundam.index', [
             'famous_lines' => $gundam_lines,
+            'title_info'   => $title_info
         ]);
     }
 

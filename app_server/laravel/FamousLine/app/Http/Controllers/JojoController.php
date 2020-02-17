@@ -19,9 +19,12 @@ class JojoController extends Controller
         // 全名言を取得
         $jojo_row_lines = JojoLine::getAllLines();
         $jojo_lines = json_decode($jojo_row_lines);
+        $title_info = Title::getTitleInfo(Title::JOJO_CODE);
+
 
         return view('jojo.index', [
             'famous_lines' => $jojo_lines,
+            'title_info'   => $title_info
         ]);
     }
 

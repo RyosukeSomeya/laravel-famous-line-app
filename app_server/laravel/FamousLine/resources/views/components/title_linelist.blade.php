@@ -1,3 +1,7 @@
+<div class="mb-2">
+    <a class="btn btn-success btn-sm" href="/{{ $title_info->path }}/create">名言追加</a>
+    <a class="btn btn-success btn-sm" href="/{{ $title_info->path }}characters">キャラクター一覧</a>
+</div>
 <div class="row">
     <div class="col">
         <dl class="linelist-container">

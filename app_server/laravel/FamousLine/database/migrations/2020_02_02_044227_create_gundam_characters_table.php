@@ -16,7 +16,7 @@ class CreateGundamCharactersTable extends Migration
         Schema::create('gundam_characters', function (Blueprint $table) {
             $table->increments('id');
             $table->string('character_name');
-            $table->integer('character_id');
+            $table->string('character_id');
             $table->integer('title_id');
             $table->timestamps();
         });

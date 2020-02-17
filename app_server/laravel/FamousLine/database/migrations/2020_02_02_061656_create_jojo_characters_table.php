@@ -16,7 +16,7 @@ class CreateJojoCharactersTable extends Migration
         Schema::create('jojo_characters', function (Blueprint $table) {
             $table->increments('id');
             $table->string('character_name');
-            $table->integer('character_id');
+            $table->string('character_id');
             $table->integer('title_id');
             $table->timestamps();
         });

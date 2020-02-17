@@ -1,7 +1,9 @@
 <div class="row">
     <div class="col">
         <div class="clearfix mb-3">
-            <h3 class="float-left">{{ $slamdunk_lines[0]->title->title }}</h3>
+            <h3 class="float-left">
+                <a href="/{{ $slamdunk_title_info->path }}">{{ $slamdunk_lines[0]->title->title }}</a>
+            </h3>
             <a class="ml-2 btn btn-primary btn-sm d-inline-block" href="/slamdunk/create">新規追加</a>
         </div>
 
@@ -22,7 +24,9 @@
 
     <div class="col">
         <div class="clearfix mb-3">
-            <h3 class="float-left">{{ $jojo_lines[0]->title->title }}</h3>
+            <h3 class="float-left">
+                <a href="/{{ $jojo_title_info->path }}">{{ $jojo_lines[0]->title->title }}</a>
+            </h3>
             <a class=" ml-2 btn btn-primary btn-sm d-inline-block" href="/jojo/create">新規追加</a>
         </div>
         <dl class="linelist-container">
@@ -42,7 +46,9 @@
 
     <div class="col">
         <div class="clearfix mb-3">
-            <h3 class="float-left">{{ $gundam_lines[0]->title->title }}</h3>
+            <h3 class="float-left">
+                <a href="/{{ $gundam_title_info->path }}">{{ $gundam_lines[0]->title->title }}</a>
+            </h3>
             <a class="ml-2 btn btn-primary btn-sm d-inline-block" href="/gundam/create">新規追加</a>
         </div>
         <dl class="linelist-container">
