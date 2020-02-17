@@ -22,6 +22,6 @@ class JojoCharacter extends Model
 
     public static function getCharactersCount()
     {
-        return GundamCharacter::all()->count();
+        return JojoCharacter::all()->count();
     }
 }

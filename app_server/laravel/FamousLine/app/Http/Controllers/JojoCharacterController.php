@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\JojoCharacter;
+use App\Title;
 
 class JojoCharacterController extends Controller
 {
@@ -13,7 +15,13 @@ class JojoCharacterController extends Controller
      */
     public function index()
     {
-        //
+        $characters = JojoCharacter::getCharacters();
+        $title_info = Title::getTitleInfo(Title::JOJO_CODE);
+
+        return view('character.index', [
+            'characters' => $characters,
+            'title_info' => $title_info,
+        ]);
     }
 
     /**
@@ -23,7 +31,10 @@ class JojoCharacterController extends Controller
      */
     public function create()
     {
-        //
+        $title_info = Title::getTitleInfo(Title::JOJO_CODE);
+        return view('character.jojo_chara_create', [
+            'title_info' => $title_info
+        ]);
     }
 
     /**
@@ -32,20 +43,13 @@ class JojoCharacterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, JojoCharacter $chara)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $chara->character_name  = $request->character_name;
+        $chara->character_id    = JojoCharacter::getCharactersCount() + 1;
+        $chara->title_id        = $request->title_id;
+        $chara->save();
+        return redirect('/jojocharacters');
     }
 
     /**
@@ -56,7 +60,13 @@ class JojoCharacterController extends Controller
      */
     public function edit($id)
     {
-        //
+        $character = JojoCharacter::getCharacter($id);
+        $title_info = Title::getTitleInfo(Title::JOJO_CODE);
+
+        return view('character.jojo_chara_edit', [
+            'character' => $character,
+            'title_info' => $title_info
+        ]);
     }
 
     /**
@@ -68,7 +78,10 @@ class JojoCharacterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $character = JojoCharacter::getCharacter($id);
+        $character->character_name = $request->character_name;
+        $character->save();
+        return redirect('/jojocharacters');
     }
 
     /**
@@ -79,6 +92,9 @@ class JojoCharacterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $chara = JojoCharacter::getCharacter($id);
+        $chara->delete();
+
+        return redirect('/jojocharacters');
     }
 }

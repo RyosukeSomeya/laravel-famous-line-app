@@ -20,7 +20,7 @@ class GundamCharacterController extends Controller
 
         return view('character.index', [
             'characters' => $characters,
-            'title_info' => $title_info,
+            'title_info' => $characters,
         ]);
     }
 
