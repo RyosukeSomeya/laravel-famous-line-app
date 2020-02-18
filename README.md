@@ -1,6 +1,10 @@
 # LaravelREST APIと管理画面
 ## マンガ名言API
-### 構築される環境
+```
+漫画・アニメの名言を返すAPI
+管理画面から名言と各漫画の登場人物のCRUD操作が可能
+```
+### 構築環境
 ```
 LAMP + Laravel
 L: Linux(alpine)
@@ -40,49 +44,8 @@ laravel_develop_env_docker/
 ## 使用方法
 ### Laravel新規作成時
 **0.リポジトリをクローン**
+**cloneから起動まで**
 
-**1.Laravelのプロジェクト名とバージョンの指定**
-
-ルートディレクトリの.envファイルを修正
-```
-PROJECT_NAME=任意のアプリ名
-LARAVEL_VERSION=5.7.*　# <= 任意のバージョン. 空白で最新バージョン
-```
-<br>
-
-**2.プロジェクト作成**
-
-a.ローカル:ルートディレクトリにある新規アプリ作成スクリプト(create_app.sh)を実行
-```
-# ./create_app.sh
-```
-<br>
-b. コンテナ内:aの実行が終了するとwebサーバーコンテナにアタッチされるので、`/var/www`ディレクトリで`setting.sh`を実行
-
-```
-# pwd
-/var/www
-# ./setting.sh
-```
-`setting.sh`では、`/var/www/laravel`ディレクトリでのLaravelのインストールと、
-`/var/www/laravel`ディレクトリとDocumentRootに設定されているディレクトリ`/var/www/app`間でのシンボリックリンクが作成される。
-<br>
-
-c. ローカル:setting.shが完了後は、ブラウザから`http://localhost`で接続可能。LaravelTOPページが表示される。
-
-### 2回目以降の実行
-
-**1.ローカル:ルートディレクトリにあるアプリ実行スクリプト(start.sh)を実行**
-```
-# ./start.sh
-```
-上記コマンドで、`docker-compose up`と、サーバー内でプロジェクトのディレクトリとDocumentRoot用ディレクトリ間でシンボリックリンクが再度設定され、ブラウザからの接続が可能になる。
-<br>
-
-### その他
-**.gitignore**
-- 初期は、Laravelプロジェクトマウントディレクトリを除外しているので、開発開始時点で.gitignoreの対象から外す。
-- dbコンテナ生成時に、db_volumeディレクトリがすでに存在している場合、docker-composeのenvironmentの内容は反映されないので注意。ディレクトリを削除後にコンテナを作成すると反映される。
 
 **LaravelでのDB接続設定について**
 
