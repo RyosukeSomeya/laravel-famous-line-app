@@ -43,7 +43,7 @@ laravel_develop_env_docker/
 
 ## 使用方法
 ### Laravel新規作成時
-**0.リポジトリをクローン**
+**1.リポジトリをクローン**
 **cloneから起動まで**
 1. Appのルートディレクトリでcomposer update
 2. .envファイルを作成, 編集
