@@ -45,7 +45,21 @@ laravel_develop_env_docker/
 ### Laravel新規作成時
 **0.リポジトリをクローン**
 **cloneから起動まで**
-
+1. Appのルートディレクトリでcomposer update
+2. .envファイルを作成, 編集
+.envファイル内のデータベース接続設定は下記の通り
+```
+  DB_CONNECTION=mysql
+  DB_HOST=db
+  DB_PORT=3306
+  DB_DATABASE=famous_line_db
+  DB_USERNAME=user
+  DB_PASSWORD=password
+```
+3. php artisan key:generate
+4. commandディレクトリ配下で./create_app.shを実行
+5. マイグレーション php artisan migrate
+6. seedの流し込み php artisan db:seed
 
 **LaravelでのDB接続設定について**
 
