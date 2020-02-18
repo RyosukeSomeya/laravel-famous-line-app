@@ -98,3 +98,18 @@ services:
 ```
 DB_HOST=db
 ```
+
+```
+1. Appのルートディレクトリでcomposer update
+2. .envファイルを作成, 編集
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=famous_line_db
+DB_USERNAME=user
+DB_PASSWORD=password
+
+3. php artisan key:generate
+4. docker リスタート
+4. db作成 php artisan migrate
+```
