@@ -121,7 +121,9 @@ JSON形式でapiからのレスポンスを取得できます。
 
 管理画面へは`localhost`でアクセス。
 
-
+<img width="1157" alt="console" src="https://user-images.githubusercontent.com/40926770/75687619-6891bd00-5ce1-11ea-98c1-25ed3ec6c55b.png">
 
 - タイトル一覧表示
 - 各漫画の名言のCRUD処理ができ、APIに新たな名言を追加することができます。
+
+<img width="486" alt="json_list" src="https://user-images.githubusercontent.com/40926770/75687638-6cbdda80-5ce1-11ea-9001-8c3442f969ca.png">
