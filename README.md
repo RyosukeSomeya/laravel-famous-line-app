@@ -89,3 +89,22 @@ DB_PASSWORD=password
 4. docker リスタート
 4. db作成 php artisan migrate
 ```
+
+### api・管理画面へのアクセス
+1. apiの利用
+apiとして取得できる漫画タイトルは以下の3つ
+```
+1. スラムダンク
+2. 機動戦士ガンダム
+3. ジョジョの奇妙な冒険
+```
+JSON形式でapiからのレスポンスを取得できます。
+リスト形式
+`localhost/api/gundam`
+`localhost/api/jojo`
+`localhost/api/slamdunk`
+
+個別で取得
+`localhost/api/gundam/1`
+`localhost/api/jojo/1`
+`localhost/api/slamdunk/1`
