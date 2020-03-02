@@ -108,6 +108,9 @@ JSON形式でapiからのレスポンスを取得できます。
 
 `localhost/api/slamdunk`
 
+例)
+
+<img width="486" alt="json_list" src="https://user-images.githubusercontent.com/40926770/75687638-6cbdda80-5ce1-11ea-9001-8c3442f969ca.png">
 
 **個別で取得**
 
@@ -116,6 +119,10 @@ JSON形式でapiからのレスポンスを取得できます。
 `localhost/api/jojo/1`
 
 `localhost/api/slamdunk/1`
+
+例）
+
+<img width="316" alt="json1" src="https://user-images.githubusercontent.com/40926770/75687792-b0184900-5ce1-11ea-89c2-79491308eba2.png">
 
 ### 管理画面
 
@@ -126,4 +133,6 @@ JSON形式でapiからのレスポンスを取得できます。
 - タイトル一覧表示
 - 各漫画の名言のCRUD処理ができ、APIに新たな名言を追加することができます。
 
-<img width="486" alt="json_list" src="https://user-images.githubusercontent.com/40926770/75687638-6cbdda80-5ce1-11ea-9001-8c3442f969ca.png">
+<img width="929" alt="crud1" src="https://user-images.githubusercontent.com/40926770/75687816-bb6b7480-5ce1-11ea-8702-f7fa7fe98b27.png">
+<img width="825" alt="crud2" src="https://user-images.githubusercontent.com/40926770/75687825-befefb80-5ce1-11ea-8d39-06a0a5029ee7.png">
+
