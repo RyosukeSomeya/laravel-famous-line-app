@@ -100,11 +100,19 @@ apiとして取得できる漫画タイトルは以下の3つ
 ```
 JSON形式でapiからのレスポンスを取得できます。
 リスト形式
-`localhost/api/gundam`
-`localhost/api/jojo`
+
+`localhost/api/gundam` 
+
+`localhost/api/jojo` 
+
 `localhost/api/slamdunk`
 
+
 個別で取得
+
 `localhost/api/gundam/1`
+
 `localhost/api/jojo/1`
+
 `localhost/api/slamdunk/1`
+
