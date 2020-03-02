@@ -99,7 +99,8 @@ apiとして取得できる漫画タイトルは以下の3つ
 3. ジョジョの奇妙な冒険
 ```
 JSON形式でapiからのレスポンスを取得できます。
-リスト形式
+
+**リスト形式**
 
 `localhost/api/gundam` 
 
@@ -108,7 +109,7 @@ JSON形式でapiからのレスポンスを取得できます。
 `localhost/api/slamdunk`
 
 
-個別で取得
+**個別で取得**
 
 `localhost/api/gundam/1`
 
@@ -116,3 +117,11 @@ JSON形式でapiからのレスポンスを取得できます。
 
 `localhost/api/slamdunk/1`
 
+### 管理画面
+
+管理画面へは`localhost`でアクセス。
+
+
+
+- タイトル一覧表示
+- 各漫画の名言のCRUD処理ができ、APIに新たな名言を追加することができます。
