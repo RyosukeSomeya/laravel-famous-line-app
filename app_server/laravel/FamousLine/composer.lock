@@ -3291,6 +3291,7 @@
                 "thanks": {
                     "name": "symfony/polyfill",
                     "url": "https://github.com/symfony/polyfill"
+
                 }
             },
             "autoload": {
